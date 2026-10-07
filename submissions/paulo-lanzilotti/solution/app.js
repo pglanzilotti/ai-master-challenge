@@ -41,6 +41,9 @@ const state = {
   reviewEditorOpen: false,
   queueMode: false,
   queueHandledIds: new Set(),
+  queueActionCount: 0,
+  builderCardVisible: false,
+  builderCardShown: false,
   busy: false,
   error: '',
 };
@@ -189,6 +192,19 @@ function activeDetail() {
   return state.queueMode ? ui.queueDetail : ui.detail;
 }
 
+function builderCardMarkup() {
+  return `<article class="builder-card" aria-labelledby="builder-card-title">
+    <div class="builder-card-mark" aria-hidden="true">p<span>l.</span></div>
+    <p class="builder-card-eyebrow">Uma pausa rápida na fila</p>
+    <h3 id="builder-card-title">Paulo Lanzilotti</h3>
+    <p class="builder-card-role">Product &amp; AI Technology Leader</p>
+    <p class="builder-card-proposition">I turn complex operations into AI-enabled products that create measurable commercial outcomes.</p>
+    <div class="builder-card-tags" aria-label="Áreas de atuação"><span>Product strategy</span><span>AI</span><span>Marketing</span></div>
+    <p class="builder-card-projects">Ford · Neuron · JEM · The Flooring Empire · RefurbHub</p>
+    <div class="builder-card-actions"><a class="builder-card-portfolio" href="https://portfolio.lanzilotti.com.br/" target="_blank" rel="noopener noreferrer">Explore my journey <span aria-hidden="true">↗</span></a><button type="button" class="builder-card-continue" data-builder-continue>Continue to the queue</button></div>
+  </article>`;
+}
+
 function actionIcon(kind) {
   const paths = {
     no_answer: '<path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.8 2.1Z"/><path d="m16 2 6 6m0-6-6 6"/>',
@@ -201,6 +217,10 @@ function actionIcon(kind) {
 function renderDetail(item) {
   const target = activeDetail();
   ui.queueClose.disabled = state.busy;
+  if (state.queueMode && state.builderCardVisible) {
+    target.innerHTML = builderCardMarkup();
+    return;
+  }
   if (state.queueMode && state.seller === 'all') {
     target.innerHTML = `<div class="queue-intro"><h3 tabindex="-1" class="queue-client-title">Qual é a sua carteira?</h3><p>Escolha o vendedor para começar de onde a fila parou.</p>
       <form id="queue-seller-form"><label for="queue-seller">Vendedor responsável</label><select id="queue-seller" name="seller" required><option value="">Selecionar vendedor</option>${[...new Set(state.opportunities.map(item => item.agent))].sort((a,b) => a.localeCompare(b, 'pt-BR')).map(name => `<option value="${escapeHtml(name)}">${escapeHtml(name)}</option>`).join('')}</select><button type="submit" class="composer-save">Começar</button></form></div>`;
@@ -466,7 +486,16 @@ async function recordInteraction(action, note = null, sentiment = null, followUp
     }
     await refreshState();
     delete state.pendingActionIds[actionKey];
-    if (state.queueMode) state.queueHandledIds.add(item.id);
+    if (state.queueMode) {
+      state.queueHandledIds.add(item.id);
+      if (['skip', 'no_answer', 'contacted'].includes(action)) {
+        state.queueActionCount += 1;
+        if (state.queueActionCount === 5 && !state.builderCardShown) {
+          state.builderCardVisible = true;
+          state.builderCardShown = true;
+        }
+      }
+    }
     if (action === 'contacted') {
       delete state.noteDrafts[item.id];
       delete state.sentimentDrafts[item.id];
@@ -553,6 +582,13 @@ ui.footer.addEventListener('click', (event) => {
 
 function handleDetailClick(event) {
   if (state.busy) return;
+  if (event.target.closest('[data-builder-continue]')) {
+    state.builderCardVisible = false;
+    state.error = '';
+    render();
+    ui.queueDetail.querySelector('.queue-client-title')?.focus();
+    return;
+  }
   if (event.target.closest('[data-exit-queue]')) { closeQueueMode(); return; }
   const sentiment = event.target.closest('[data-sentiment]')?.dataset.sentiment;
   if (sentiment) {
@@ -660,6 +696,8 @@ ui.queueStart.addEventListener('click', () => {
   render();
   state.queueMode = true;
   state.queueHandledIds.clear();
+  state.queueActionCount = 0;
+  state.builderCardVisible = false;
   ui.queueAnnouncer.textContent = '';
   state.selectedId = null;
   state.error = '';

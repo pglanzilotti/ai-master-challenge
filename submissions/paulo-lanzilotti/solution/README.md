@@ -21,6 +21,7 @@ Abra `http://localhost:8765` no navegador. O servidor escuta apenas em `127.0.0.
 - Mostra contexto e uma próxima ação ao selecionar uma oportunidade.
 - Queue Mode abre um modal com um cliente por vez, respeitando vendedor, filtros e prazos da fila. Se nenhum vendedor estiver escolhido, solicita a carteira antes de começar.
 - No modal, `No Answer`, `Pular` e `Contactado` ficam nessa ordem. Contactado substitui os botões por notas, resultado e retorno opcional; salvar avança ao próximo cliente.
+- Depois da quinta ação da sessão, o Queue Mode mostra uma Builder Card editorial inspirada no portfolio do autor. Ela não é uma oportunidade, não altera a fila e pode ser fechada para continuar o fluxo.
 - Casos enviados à revisão durante o Queue Mode ficam disponíveis na carteira e na próxima sessão; não reaparecem imediatamente no mesmo fluxo. Fechar com o botão ou Escape volta à carteira; rascunhos ficam na memória da página até o recarregamento.
 - `Pular` adia sem contar ligação; `No Answer` conta uma tentativa e agenda retorno.
 - `Contactado` registra observação, resultado e, quando necessário, uma data de retorno.

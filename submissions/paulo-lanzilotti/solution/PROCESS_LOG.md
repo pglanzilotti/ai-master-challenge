@@ -30,3 +30,5 @@ A aplicação usa os dados reais e roda localmente. Ainda não há autenticaçã
 ## Queue Mode
 
 Após aprovar um mockup gerado por IA, o candidato solicitou o modo de foco: modal com um cliente por vez, três botões com cores semânticas e editor de notas substituindo as ações. A implementação reutiliza o registro existente de interações. A validação usa uma base SQLite isolada para conferir avanço, notas e cadência sem inserir interações de teste na carteira principal.
+
+Como detalhe editorial aprovado, após a quinta ação da sessão o Queue Mode mostra uma Builder Card inspirada na seção de apresentação do portfolio de Paulo Lanzilotti. O card quebra a repetição visual, apresenta nome, função, proposta e histórico profissional, oferece o link do portfolio e retorna ao próximo contato. Ele é explicitamente separado da fila: não tem score, não é salvo como oportunidade e não altera métricas comerciais.

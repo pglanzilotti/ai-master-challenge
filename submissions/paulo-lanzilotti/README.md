@@ -53,6 +53,7 @@ The interface exposes the score explanation only when requested, using seller la
 - The seller can browse the full queue, search by company/product/ID, and filter by seller, manager, region, and pipeline stage.
 - The queue orders actionable work by due date first and Priority Score as the tie-breaker, so stale and due work is not hidden behind a static ranking.
 - Queue Mode focuses on one opportunity at a time. It keeps the seller assignment, asks for the seller when no owner is selected, and advances to the next eligible opportunity after each action.
+- After the fifth primary action in a Queue Mode session, a clearly separated Builder Card introduces the author using the portfolio's visual language. It is not an opportunity and does not affect score, queue state, or commercial metrics.
 - `No Answer` records a real attempt and schedules a retry. `Skip` postpones without counting a call. `Contacted` requires a note and outcome, with optional follow-up date.
 - Positive, neutral, and negative outcomes are recorded in the event history. Negative outcomes enter review instead of being automatically called again.
 - The last observation is visible the next time the opportunity appears.

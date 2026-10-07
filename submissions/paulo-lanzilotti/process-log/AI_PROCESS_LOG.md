@@ -22,7 +22,8 @@ The challenge requires evidence of how AI was used to reach the solution. This n
 5. Built the seller-facing queue first, then added persistent workflow events, ownership rules, cadence, and review states.
 6. Added a compact explanation of the score, then added filters by seller, manager, region, and stage.
 7. Designed Queue Mode as a focus modal and connected its actions to the same server-side interaction API.
-8. Prepared this submission package against the official fork/branch/folder template without opening or pushing a Pull Request.
+8. Added a portfolio-inspired Builder Card after the fifth primary Queue Mode action as a small, explicit author introduction that does not alter the queue or dataset.
+9. Prepared this submission package against the official fork/branch/folder template without opening or pushing a Pull Request.
 
 ## Important corrections
 
@@ -38,6 +39,8 @@ The initial queue concept sorted by score only. That would allow a seller to ign
 `No Answer` counts as an attempt and uses a short retry cadence. `Skip` postpones without counting a call. Repeated no-answer or skip behavior enters review. `Contacted` requires a note and outcome, and the seller can record an agreed follow-up date.
 
 The first UI explanation exposed raw component values. That was reduced to a collapsed “Como foi priorizada” disclosure with four plain-language reasons, keeping the decision visible without turning the seller screen into an analytics dashboard.
+
+The final Queue Mode iteration added a Builder Card after five primary actions. It adapts the portfolio's introduction section into a short interlude with the author's role, proposition, project history, and a link back to the portfolio. The card is explicitly not a CRM record, so it cannot contaminate scoring or queue metrics.
 
 ## Human judgment
 

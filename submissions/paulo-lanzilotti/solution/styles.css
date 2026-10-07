@@ -389,6 +389,23 @@ body.queue-mode-open { overflow: hidden; }
 .queue-intro form { display: flex; flex-wrap: wrap; gap: 10px; }
 .queue-intro label { width: 100%; font-size: 13px; font-weight: 600; }
 .queue-intro select { flex: 1; min-width: 180px; height: 44px; padding: 0 12px; color: var(--ink); border: 1px solid var(--line); border-radius: 9px; background: white; font-size: 14px; }
+.builder-card { position: relative; overflow: hidden; padding: 10px 4px 2px; }
+.builder-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: #ff5b2d; }
+.builder-card-mark { margin-top: 18px; color: #101318; font-size: 38px; font-weight: 800; letter-spacing: -.12em; line-height: .9; }
+.builder-card-mark span { color: #ff5b2d; }
+.builder-card-eyebrow { margin: 31px 0 13px; color: #ff5b2d; font-size: 12px; font-weight: 700; letter-spacing: .02em; text-transform: uppercase; }
+.builder-card h3 { margin: 0; color: #101318; font-size: 32px; letter-spacing: -.045em; }
+.builder-card-role { margin: 7px 0 0; color: var(--muted); font-size: 14px; }
+.builder-card-proposition { max-width: 480px; margin: 29px 0 22px; color: #101318; font-size: 20px; line-height: 1.28; letter-spacing: -.025em; }
+.builder-card-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.builder-card-tags span { padding: 7px 10px; border: 1px solid #d8dce2; border-radius: 999px; color: #3d4654; font-size: 12px; }
+.builder-card-projects { margin: 25px 0 0; padding-top: 17px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; line-height: 1.6; }
+.builder-card-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 30px; }
+.builder-card-portfolio, .builder-card-continue { min-height: 42px; padding: 0 15px; border-radius: 9px; font-size: 13px; font-weight: 650; }
+.builder-card-portfolio { display: inline-flex; align-items: center; gap: 8px; color: #101318; background: #ff5b2d; text-decoration: none; }
+.builder-card-portfolio:hover { background: #ee4b20; }
+.builder-card-continue { border: 1px solid var(--line); color: var(--ink); background: var(--surface); }
+.builder-card-continue:hover { border-color: #aab1bc; background: var(--surface-hover); }
 .queue-dialog ::selection { background: var(--primary-pale); color: var(--ink); }
 .queue-dialog textarea { caret-color: #177541; }
 
