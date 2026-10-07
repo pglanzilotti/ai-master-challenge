@@ -4,6 +4,8 @@
 
 The challenge requires evidence of how AI was used to reach the solution. This narrative is the primary process-log evidence. It records the decomposition, the important corrections, the human decisions, and the implementation iterations.
 
+> **Full conversation walkthrough:** [ChatGPT conversation](https://chatgpt.com/s/cx_6ac68d1b75308191a97fc24164f07b5a)
+
 ## Tools
 
 - **Codex:** explored the repository and dataset, reasoned about scoring, implemented the local app, and checked the browser flow.
@@ -47,4 +49,4 @@ The app was iterated from data inspection to a two-column queue, then to persist
 
 ## Evidence note
 
-The official submission guide accepts a written narrative as a process log, so this file is intentionally self-contained. The Queue Mode concept generated during the UI iteration is included at [`screenshots/queue-mode-concept.png`](./screenshots/queue-mode-concept.png). A direct ChatGPT conversation export was not generated automatically in this workspace; it can be added under `chat-exports/` later as an optional supplement. No PR or remote push has been made.
+The official submission guide accepts a written narrative as a process log, so this file is intentionally self-contained. The Queue Mode concept generated during the UI iteration is included at [`screenshots/queue-mode-concept.png`](./screenshots/queue-mode-concept.png). The full conversation is available through the link at the top of this file as an optional supplement. No PR or remote push has been made.

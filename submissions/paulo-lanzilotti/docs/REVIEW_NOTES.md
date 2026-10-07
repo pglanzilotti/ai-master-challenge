@@ -1,5 +1,9 @@
 # Reviewer notes
 
+## Message to reviewers
+
+The complete product conversation is available here: [ChatGPT conversation](https://chatgpt.com/s/cx_6ac68d1b75308191a97fc24164f07b5a). It provides additional context for the scoring decisions, queue behavior, and interface iterations. The formal written process log remains the self-contained evidence record.
+
 ## Fast path
 
 1. Open [`solution/README.md`](../solution/README.md).

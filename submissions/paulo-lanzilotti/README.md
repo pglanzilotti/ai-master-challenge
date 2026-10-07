@@ -6,6 +6,8 @@
 - **LinkedIn:** https://linkedin.com/in/paulo-guilherme-lanzilotti-a42373a9
 - **Challenge chosen:** Challenge 003 — Lead Scorer
 
+> **Full conversation walkthrough:** [ChatGPT conversation](https://chatgpt.com/s/cx_6ac68d1b75308191a97fc24164f07b5a)
+
 ---
 
 ## Executive Summary
@@ -113,6 +115,10 @@ I defined the product framing as sales prioritization, chose the score weights, 
 - [x] Local git branch and submission history
 - [x] Browser validation described above
 - [ ] Chat export or screenshots — optional supplement; the narrative process log is the primary evidence format used here
+
+## Note to reviewers
+
+The linked conversation contains the product reasoning behind the score, queue rules, seller workflow, and interface decisions. The written process log below is the self-contained submission record; the conversation is provided as additional context.
 
 ---
 
