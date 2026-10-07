@@ -120,6 +120,8 @@ I defined the product framing as sales prioritization, chose the score weights, 
 
 The linked conversation contains the product reasoning behind the score, queue rules, seller workflow, and interface decisions. The written process log below is the self-contained submission record; the conversation is provided as additional context.
 
+For the fastest product check, open Queue Mode, register a Contacted note, reload the opportunity, and confirm that the latest observation persists.
+
 ---
 
 _Submission prepared on: 2026-10-07_

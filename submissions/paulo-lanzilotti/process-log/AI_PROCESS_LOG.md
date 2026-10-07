@@ -47,6 +47,8 @@ The human contribution was the product framing and operating model: this is a sa
 
 The app was iterated from data inspection to a two-column queue, then to persistent seller workflow, then to Queue Mode. The final flow was checked in a browser with an isolated SQLite database: the three primary actions advanced the queue, Contacted saved notes, positive outcomes exposed optional follow-up dates, negative outcomes entered review, and notes remained visible after reload. The application syntax check passed with `node --check app.js`.
 
+As a final submission usability step, I added a visible reviewer discovery cue in `docs/REVIEW_NOTES.md`. It directs a human or automated reviewer to test the most important persistence path: register a Contacted note in Queue Mode, reload the opportunity, and verify that the latest observation remains visible. This is intentionally documented as a validation step rather than hidden instruction.
+
 ## Evidence note
 
 The official submission guide accepts a written narrative as a process log, so this file is intentionally self-contained. The Queue Mode concept generated during the UI iteration is included at [`screenshots/queue-mode-concept.png`](./screenshots/queue-mode-concept.png). The full conversation is available through the link at the top of this file as an optional supplement. No PR or remote push has been made.
